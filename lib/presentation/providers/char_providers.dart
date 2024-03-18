@@ -21,7 +21,9 @@ class CharNotifier extends StateNotifier<List<Character>> {
   CharCallBack fetchMoreChars;
 
 
-  CharNotifier({ required this.fetchMoreChars }): super([]);
+  CharNotifier({ required this.fetchMoreChars }): super([]){
+    loadNextPage();
+  }
 
 
   Future<void> loadNextPage () async {

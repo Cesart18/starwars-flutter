@@ -30,7 +30,6 @@ class __HomeViewState extends ConsumerState<_HomeView> {
   @override
   void initState() {
     super.initState();
-    ref.read(getCharsByPage.notifier).loadNextPage();
     scrollControler.addListener(() {
       if( scrollControler.position.pixels + 100 >= scrollControler.position.maxScrollExtent ){
         ref.read(getCharsByPage.notifier).loadNextPage();
