@@ -1,7 +1,7 @@
 class Character {
   final String name;
-  final double height;
-  final double mass;
+  final String height;
+  final String mass;
   final String hairColor;
   final String skinColor;
   final String gender;
