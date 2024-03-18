@@ -74,7 +74,7 @@ class __HomeViewState extends ConsumerState<_HomeView> {
                     ),
                   ))
               : null,
-          backgroundColor: Colors.black45,
+          backgroundColor: Colors.grey,
           actions: [
             IconButton(
                 onPressed: () {
