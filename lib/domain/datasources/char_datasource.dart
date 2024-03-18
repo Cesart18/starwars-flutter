@@ -5,6 +5,6 @@
 
 abstract class CharDatasource {
 
-    Future<List<Character>> getChars( int page );
+    Future<List<Character>> getChars({ int page = 1 });
 
   }
