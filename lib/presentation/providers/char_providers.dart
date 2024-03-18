@@ -29,6 +29,7 @@ class CharNotifier extends StateNotifier<List<Character>> {
 
     isLoading = true;
     currentPage++;
+    if( currentPage == 9 ) return;
     final List<Character> chars = await fetchMoreChars(page: currentPage);
     state = [...state, ...chars];
     await Future.delayed( const Duration(milliseconds: 300));
