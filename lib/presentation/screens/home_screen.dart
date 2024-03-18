@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:enciclopedia_starwars/domain/domain.dart';
 import 'package:enciclopedia_starwars/presentation/providers/char_providers.dart';
 import 'package:enciclopedia_starwars/presentation/screens/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -45,11 +46,14 @@ class __HomeViewState extends ConsumerState<_HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    final chars = ref.watch(getCharsByPage);
+    final gender = ref.watch(genderProvider);
+    final  chars = ref.watch(getCharsByPage);
+    final filteredChars = ref.watch(getCharsByPage.notifier).getFilteredChars(gender);
     return CustomScrollView(
       controller: scrollControler,
       slivers: [
         SliverAppBar(
+          floating: true,
           centerTitle: false,
           title: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -63,10 +67,11 @@ class __HomeViewState extends ConsumerState<_HomeView> {
           ),
           bottom: show
               ? PreferredSize(
-                  preferredSize: const Size(double.infinity, 50),
+                  preferredSize: const Size(double.infinity, 70),
                   child: FadeIn(
                     child: Container(
-                      margin: const EdgeInsets.only(bottom: 20),
+                      margin: const EdgeInsets.only(bottom: 20,),
+                      child: const FilterButton(),
                     ),
                   ))
               : null,
@@ -87,11 +92,11 @@ class __HomeViewState extends ConsumerState<_HomeView> {
           ),
         ),
         SliverGrid.builder(
-          itemCount: chars.length,
+          itemCount: filteredChars.length,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, crossAxisSpacing: 2, mainAxisSpacing: 4),
           itemBuilder: (context, index) {
-            final char = chars[index];
+            final char = filteredChars[index];
             return ChardCard(char: char);
           },
         ),

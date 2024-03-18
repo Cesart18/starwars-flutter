@@ -14,3 +14,5 @@ class Character {
       required this.skinColor,
       required this.gender});
 }
+
+  enum Gender { all, male, female }
