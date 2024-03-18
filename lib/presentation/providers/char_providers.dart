@@ -38,14 +38,14 @@ class CharNotifier extends StateNotifier<List<Character>> {
     isLoading = false;
   }
   
-  List<Character> getFilteredChars ( Gender gender ){
+  List<Character> getFilteredChars ( Gender gender, List<Character> chars  ){
     switch( gender ){
       case Gender.all:
-        return state;
+        return chars;
       case Gender.male:
-        return state.where((e) => e.gender == 'male').toList();
+        return chars.where((e) => e.gender == 'male').toList();
       case Gender.female:
-        return state.where((e) => e.gender == 'female').toList();
+        return chars.where((e) => e.gender == 'female').toList();
     }
   }
 

@@ -1,5 +1,4 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:enciclopedia_starwars/domain/domain.dart';
 import 'package:enciclopedia_starwars/presentation/providers/char_providers.dart';
 import 'package:enciclopedia_starwars/presentation/screens/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +47,7 @@ class __HomeViewState extends ConsumerState<_HomeView> {
   Widget build(BuildContext context) {
     final gender = ref.watch(genderProvider);
     final  chars = ref.watch(getCharsByPage);
-    final filteredChars = ref.watch(getCharsByPage.notifier).getFilteredChars(gender);
+    final filteredChars = ref.watch(getCharsByPage.notifier).getFilteredChars(gender, chars);
     return CustomScrollView(
       controller: scrollControler,
       slivers: [
