@@ -99,9 +99,13 @@ class __HomeViewState extends ConsumerState<_HomeView> {
             return ChardCard(char: char);
           },
         ),
-        const SliverToBoxAdapter(
+         SliverToBoxAdapter(
           child: SizedBox(
             height: 30,
+            child: ( filteredChars.length <=  7 )?
+            IconButton(onPressed: (){
+              ref.read(getCharsByPage.notifier).loadNextPage();
+            }, icon: const Icon(Icons.arrow_drop_down)): null,
           ),
         )
       ],
