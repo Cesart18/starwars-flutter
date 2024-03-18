@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:enciclopedia_starwars/presentation/providers/char_providers.dart';
-import 'package:enciclopedia_starwars/presentation/screens/widgets/widgets.dart';
+import 'package:enciclopedia_starwars/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
